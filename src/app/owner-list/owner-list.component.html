@@ -4,11 +4,13 @@
     <mat-list>
       <mat-list-item *ngFor="let owner of owners">
         <h3 mat-line>
-          <a *ngIf="owner.dni" mat-button  [routerLink]="['/owner-edit', owner.dni]">{{owner.name}}, Profession: {{owner.profession}}, DNI:{{owner.dni}}</a>
+          <input type="checkbox" (change)="ownersChecks(owner._links.self.href,$event)">
+          <a *ngIf="owner.dni" [routerLink]="['/owner-edit', owner.dni]" style="color: black;" type="checkbox"><button  mat-button >{{owner.name}}, Profession: {{owner.profession}}, DNI:{{owner.dni}}</button> </a>
         </h3>
       </mat-list-item>
     </mat-list>
   </mat-card-content>
-
+ 
   <button mat-fab color="primary" [routerLink]="['/owner-add']">Add</button>
+  <button *ngIf="ownersChecked.length" mat-button  (click)="deleteOWners()">Delete Owners</button>
 </mat-card>

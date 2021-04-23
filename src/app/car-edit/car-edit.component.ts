@@ -57,7 +57,7 @@ export class CarEditComponent implements OnInit, OnDestroy {
           this.gotoList();
         }, error => console.error(error));
       }else{
-            this.noOwner="NO owner registered, try with other dni"
+            this.noOwner="No owner registered."
       }
     })
   }
